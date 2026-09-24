@@ -292,43 +292,72 @@
     font-weight: 600;
   }
 
-  /* Form */
-  .waitlist-form {
-    max-width: 480px;
-    margin: 2rem auto 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .waitlist-form input {
-    padding: 16px 20px;
-    border: 1.5px solid rgba(255,255,255,0.3);
-    border-radius: 30px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    background: rgba(255,255,255,0.1);
-    color: var(--white);
+  /* Rise waitlist form */
+  .rise-form-wrap { width: 100%; max-width: 480px; margin: 0 auto; }
+  .rise-form-wrap form { width: 100%; margin: 0; }
+  .rise-form-wrap input[type="text"],
+  .rise-form-wrap input[type="email"] {
+    display: block;
+    width: 100%;
+    height: 60px;
+    margin: 0 0 11px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    border-radius: 32px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
     outline: none;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   }
-  .waitlist-form input::placeholder { color: rgba(255,255,255,0.6); }
-  .waitlist-form input:focus { border-color: var(--white); background: rgba(255,255,255,0.15); }
-  .waitlist-form .mc-field-group input { width: 100%; box-sizing: border-box; }
-  .waitlist-form .btn { padding: 16px 40px; width: 100%; margin-top: 8px; cursor: pointer; }
-  #mce-responses { text-align: center; font-size: 0.9rem; color: var(--white); }
-  #mce-responses .response { color: var(--white) !important; margin-top: 4px; }
-  #mce-responses .response a { color: var(--white); text-decoration: underline; }
-  .waitlist-form input.mce_inline_error { border-color: #ffb3d1; }
-  .waitlist-form div.mce_inline_error {
-    font-size: 0.8rem;
-    color: var(--white) !important;
-    background: none !important;
-    padding: 4px 20px 0 !important;
-    margin: 0 !important;
-    text-align: left;
-    font-weight: 400 !important;
+  .rise-form-wrap input::placeholder { color: rgba(255, 255, 255, 0.7); opacity: 1; }
+  .rise-form-wrap input:focus {
+    border-color: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
   }
-  .form-note { font-size: 0.85rem; color: rgba(255,255,255,0.7); text-align: center; margin-top: 1rem; }
+  .rise-form-wrap button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    height: 60px;
+    margin-top: 19px;
+    border: 0;
+    border-radius: 32px;
+    background: #ffffff;
+    color: #5a0065;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .rise-form-wrap button:hover {
+    transform: translateY(-1px);
+    background: #faf7fb;
+    box-shadow: 0 8px 20px rgba(25, 0, 35, 0.18);
+  }
+  .rise-form-wrap button:active { transform: translateY(0); }
+  .rise-form-note {
+    margin: 18px 0 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.78);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  @media (max-width: 600px) {
+    .rise-form-wrap { max-width: 100%; }
+    .rise-form-wrap input[type="text"],
+    .rise-form-wrap input[type="email"],
+    .rise-form-wrap button { height: 56px; }
+    .rise-form-wrap button { font-size: 16px; }
+  }
 
   .section-intro { text-align: center; max-width: 720px; margin: 0 auto 3rem; }
 
@@ -1156,39 +1185,36 @@
     <h1 style="font-size: clamp(2rem, 4.5vw, 3.2rem);">A year of learning. A lifetime of living differently.</h1>
     <p class="subhead" style="margin-bottom: 2.5rem;">Enrollment opens after Sukkos. Join the waitlist to be the first to know when doors open.</p>
 
-    <form
-      class="waitlist-form validate"
-      action="https://thenexus.us16.list-manage.com/subscribe/post?u=5f9e3a42fb2576f2e19f3f982&amp;id=8962ee023f&amp;f_id=00922ae0f0"
-      method="post"
-      id="mc-embedded-subscribe-form"
-      name="mc-embedded-subscribe-form"
-      target="_blank"
-      novalidate
-    >
-      <div class="mc-field-group">
-        <input type="text" name="FNAME" id="mce-FNAME" placeholder="First name" aria-label="First name" required>
-      </div>
-      <div class="mc-field-group">
-        <input type="email" name="EMAIL" id="mce-EMAIL" placeholder="Email address" aria-label="Email address" required>
-      </div>
+    <!-- RISE WAITLIST / MAILCHIMP FORM -->
+    <div class="rise-form-wrap">
+      <form
+        action="https://thenexus.us16.list-manage.com/subscribe/post?u=5f9e3a42fb2576f2e19f3f982&amp;id=8962ee023f&amp;f_id=00922ae0f0"
+        method="post"
+        id="mc-embedded-subscribe-form"
+        name="mc-embedded-subscribe-form"
+        target="_blank"
+      >
+        <!-- First Name -->
+        <input type="text" name="FNAME" id="mce-FNAME" placeholder="First name" required autocomplete="given-name">
 
-      <!-- Mailchimp tag -->
-      <input type="hidden" name="tags" value="4162218">
+        <!-- Email -->
+        <input type="email" name="EMAIL" id="mce-EMAIL" placeholder="Email address" required autocomplete="email">
 
-      <!-- Mailchimp response messages -->
-      <div id="mce-responses">
-        <div class="response" id="mce-error-response" style="display:none;"></div>
-        <div class="response" id="mce-success-response" style="display:none;"></div>
-      </div>
+        <!-- KEEP: Mailchimp Tag -->
+        <input type="hidden" name="tags" value="4162218">
 
-      <!-- Mailchimp bot protection -->
-      <div aria-hidden="true" style="position:absolute;left:-5000px;">
-        <input type="text" name="b_5f9e3a42fb2576f2e19f3f982_8962ee023f" tabindex="-1" value="">
-      </div>
+        <!-- KEEP: Mailchimp anti-bot field -->
+        <div aria-hidden="true" style="position:absolute;left:-5000px;width:1px;height:1px;overflow:hidden;">
+          <input type="text" name="b_5f9e3a42fb2576f2e19f3f982_8962ee023f" tabindex="-1" value="">
+        </div>
 
-      <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn">Join the Rise! I Waitlist →</button>
-    </form>
-    <p class="form-note">Joining the waitlist does not commit you to enrolling.</p>
+        <button type="submit" name="subscribe" id="mc-embedded-subscribe">
+          Join the Rise! I Waitlist <span aria-hidden="true">&rarr;</span>
+        </button>
+
+        <p class="rise-form-note">Joining the waitlist does not commit you to enrolling.</p>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -1198,16 +1224,6 @@
   </div>
 </footer>
 
-<script src="https://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-<script>
-  (function($) {
-    window.fnames = new Array();
-    window.ftypes = new Array();
-    fnames[0] = 'EMAIL'; ftypes[0] = 'email';
-    fnames[1] = 'FNAME'; ftypes[1] = 'text';
-  }(jQuery));
-  var $mcj = jQuery.noConflict(true);
-</script>
 
 <script>
   (function() {
