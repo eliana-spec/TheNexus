@@ -594,6 +594,43 @@
     .hero .badge { font-size: 0.62rem; letter-spacing: 0.1em; padding: 8px 14px; }
     .hero .btn { padding: 17px 28px; font-size: 1rem; }
   }
+
+  /* Lighter, airier hero */
+  .hero {
+    background: linear-gradient(150deg, #4a1468 0%, #6c2383 38%, #9f4790 72%, #cc7db2 100%);
+  }
+  .hero::before {
+    background:
+      radial-gradient(ellipse at 15% 10%, rgba(255,255,255,0.14) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 85%, rgba(244, 221, 240, 0.28) 0%, transparent 55%);
+  }
+  .hero-split { padding: 150px 0 140px; }
+  .hero-grid { gap: 88px; }
+  .hero-split .opener { font-size: clamp(1.3rem, 2.4vw, 1.65rem); color: var(--pink-soft); margin-bottom: 1.6rem; max-width: 500px; }
+  .hero-split h1 { line-height: 1.12; margin-bottom: 1.8rem; }
+  .hero-split .subhead { line-height: 1.75; margin-bottom: 2.6rem; color: rgba(255,255,255,0.92); }
+  .hero-note { margin-top: 1.1rem; font-size: 0.86rem; color: rgba(255,255,255,0.78); letter-spacing: 0.01em; }
+  .hero .btn { box-shadow: 0 12px 30px rgba(40, 0, 50, 0.25); }
+  @media (max-width: 900px) {
+    .hero-split { padding: 88px 0 96px; }
+    .hero-grid { gap: 56px; }
+  }
+
+  /* Platforms (light, under How it works) */
+  .platforms-light { margin-top: 56px; text-align: center; padding: 30px 24px; border-radius: 18px; background: var(--cream); border: 1px solid rgba(78, 10, 107, 0.07); }
+  .platforms-light .platforms-label { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px; }
+  .platforms-light .platform-row li { background: var(--white); border-color: rgba(78, 10, 107, 0.12); color: var(--plum-deep); }
+  .platforms-light .platform-row svg { stroke: var(--magenta); }
+  .platforms-light .platform-row .netfree-pill { background: var(--plum-deep); border-color: var(--plum-deep); }
+  .platforms-light .platform-row .netfree-pill a { color: var(--white); }
+  .platforms-light .platform-row .netfree-pill svg { stroke: var(--pink-soft); }
+  .platforms-light .platform-row .netfree-pill:hover { background: var(--magenta); }
+
+  /* Softer transitions below the hero */
+  .proof-bar { background: var(--white); color: var(--text-muted); border-bottom: 1px solid rgba(78, 10, 107, 0.08); padding: 24px 0; }
+  .proof-bar strong { color: var(--plum-deep); }
+  .proof-bar .sep { color: var(--magenta); }
+  .questions-section { background: linear-gradient(160deg, #3a0f55 0%, #55186e 100%); }
 </style>
 <script>
   (function() {
@@ -673,20 +710,11 @@
   <span class="hero-glyph g2" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#glyph-vine"/></svg></span>
   <div class="container hero-grid">
     <div class="hero-copy">
-      <p class="opener">Being a Jewish woman today is a lot. It's also more significant than you've ever been told.</p>
+      <p class="opener">Are you a modern Jewish woman looking to rise into your highest potential?</p>
       <h1>The Torah has a breathtaking vision for <em>you.</em></h1>
-      <p class="subhead">Join <strong>The Rise of the Holy Feminine in the Pre-Messianic Era</strong> and enter the world of the deepest Torah secrets for women living in the end of days. Rise into your highest, holiest potential.</p>
+      <p class="subhead">Join <strong>The Rise of the Holy Feminine in the Pre-Messianic Era</strong> and enter the world of the deepest Torah secrets for women living in the end of days.</p>
       <a href="https://school.thenexus.org/enroll/3482146?et=free" class="btn">Start the Free Mini-Course <span aria-hidden="true">&rarr;</span></a>
-      <div class="platforms">
-      <span class="platforms-label">Delivered to your inbox. Watch or listen on</span>
-      <ul class="platform-row">
-        <li><svg aria-hidden="true"><use href="#ic-spotify"/></svg>Spotify</li>
-        <li><svg aria-hidden="true"><use href="#ic-apple-podcasts"/></svg>Apple Podcasts</li>
-        <li><svg aria-hidden="true"><use href="#ic-youtube"/></svg>YouTube</li>
-        <li><svg aria-hidden="true"><use href="#ic-torahanytime"/></svg>TorahAnytime</li>
-        <li class="netfree-pill"><a href="https://school.thenexus.org/enroll/3903073?et=free"><svg aria-hidden="true"><use href="#ic-shield"/></svg>NetFree version</a></li>
-      </ul>
-    </div>
+      <p class="hero-note">100% free &middot; 10 minutes a lesson &middot; Instant access</p>
     </div>
     <div class="hero-visual">
       <div class="arch-ring" aria-hidden="true"></div>
@@ -760,6 +788,16 @@
         <p>One lesson a day and in under two weeks you'll see yourself, your marriage and this moment in history through the Torah's eyes.</p>
       </li>
     </ol>
+    <div class="platforms platforms-light">
+    <span class="platforms-label">Delivered to your inbox. Watch or listen on</span>
+    <ul class="platform-row">
+      <li><svg aria-hidden="true"><use href="#ic-spotify"/></svg>Spotify</li>
+      <li><svg aria-hidden="true"><use href="#ic-apple-podcasts"/></svg>Apple Podcasts</li>
+      <li><svg aria-hidden="true"><use href="#ic-youtube"/></svg>YouTube</li>
+      <li><svg aria-hidden="true"><use href="#ic-torahanytime"/></svg>TorahAnytime</li>
+      <li class="netfree-pill"><a href="https://school.thenexus.org/enroll/3903073?et=free"><svg aria-hidden="true"><use href="#ic-shield"/></svg>NetFree version</a></li>
+    </ul>
+    </div>
   </div>
 </section>
 
@@ -934,7 +972,6 @@
           <li><span class="reach-big">25+</span><span class="reach-label">years teaching Torah</span></li>
           <li><span class="reach-big">Worldwide</span><span class="reach-label">online school &amp; retreats</span></li>
         </ul>
-        <p class="author-line">Are you a modern Jewish woman searching for answers?</p>
       </div>
     </div>
   </div>
