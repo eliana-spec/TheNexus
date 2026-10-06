@@ -118,6 +118,8 @@
     max-width: 560px;
     margin: 0 auto 1.4rem;
   }
+  .hero .teacher-line { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 1.4rem; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.85); }
+  .hero .teacher-line img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; object-position: center 30%; border: 2px solid rgba(244, 221, 240, 0.6); }
   .hero .series-label { margin-bottom: 1.4rem; color: rgba(255,255,255,0.75); }
   .hero .badge {
     display: inline-block;
@@ -244,6 +246,12 @@
   .split { display: grid; grid-template-columns: 260px 1fr; gap: 56px; align-items: center; }
   .tamar-photo { width: 100%; border-radius: 12px; display: block; box-shadow: 0 12px 36px rgba(78, 10, 107, 0.15); }
   .split p { color: var(--text); }
+  .reach { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 1.8rem 0 1.2rem; }
+  .reach li { background: var(--pink-wash); border-radius: 12px; padding: 18px 14px; text-align: center; }
+  .reach-big { display: block; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.9rem; line-height: 1.05; color: var(--plum-deep); }
+  .reach-label { display: block; margin-top: 6px; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--magenta); }
+  .author-line { font-size: 0.95rem; color: var(--text-muted) !important; }
+  @media (max-width: 480px) { .reach { grid-template-columns: 1fr; } }
   .letter-signature { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.5rem; font-style: italic; color: var(--plum-deep); }
   @media (max-width: 768px) {
     .split { grid-template-columns: 1fr; gap: 32px; text-align: center; }
@@ -527,7 +535,7 @@
     <h1>The Torah has a breathtaking vision for <em>you.</em></h1>
     <p class="subhead">Join <strong>The Rise of the Holy Feminine in the Pre-Messianic Era</strong> and enter the world of the deepest Torah secrets for women living in the end of days. Rise into your highest, holiest potential.</p>
     <span class="badge">Free Mini-Course &middot; 10 Lessons &middot; 10 Minutes Each</span>
-    <span class="eyebrow series-label">With Rebbetzin Tamar Taback</span>
+    <span class="teacher-line"><img src="tamar.jpg" alt="" width="40" height="40">With Rebbetzin Tamar Taback</span>
     <a href="https://school.thenexus.org/enroll/3482146?et=free" class="btn">Start the Free Mini-Course <span aria-hidden="true">&rarr;</span></a>
     <div class="platforms">
       <span class="platforms-label">Delivered to your inbox. Watch or listen on</span>
@@ -784,8 +792,14 @@
       <div>
         <span class="ornament-mark" style="justify-content: flex-start;"><span class="ornament"><svg><use href="#glyph-pomegranate"/></svg></span></span>
         <h2>Rebbetzin Tamar Taback</h2>
-        <p>Tamar is the founder of the Nexus School of Transformational Torah: teacher, facilitator and coach. For twenty years she has been exploring classical, Chassidic and kabbalistic sources in search of answers for the Jewish woman of this generation.</p>
-        <p>Her gift is taking the deepest ideas in Torah and making them clear, warm and livable, for the woman living a real life today.</p>
+        <p>Tamar is the founder of the Nexus School of Transformational Torah: teacher, facilitator and coach. She has been teaching Torah to women since 2000, and has taught thousands of women around the world through her online school, classes and retreats.</p>
+        <p>Her gift is taking the deepest classical, Chassidic and kabbalistic sources and making them clear, warm and livable, for the woman living a real life today.</p>
+        <ul class="reach">
+          <li><span class="reach-big">1000s</span><span class="reach-label">of women taught</span></li>
+          <li><span class="reach-big">25+</span><span class="reach-label">years teaching Torah</span></li>
+          <li><span class="reach-big">Worldwide</span><span class="reach-label">online school &amp; retreats</span></li>
+        </ul>
+        <p class="author-line">Author of <em>Rising! Into Your Aishet Chayil</em></p>
       </div>
     </div>
   </div>
