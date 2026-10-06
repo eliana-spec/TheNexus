@@ -290,6 +290,11 @@
   .logo-row { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 14px 40px; }
   .logo-row li { color: var(--plum-deep); opacity: 0.72; line-height: 1.1; transition: opacity 0.2s ease; }
   .logo-row li:hover { opacity: 1; }
+  .logo-row li { display: flex; align-items: center; justify-content: center; }
+  .logo-row .logo { height: 40px; width: auto; max-width: 160px; object-fit: contain; filter: grayscale(1); opacity: 0.8; transition: filter 0.2s ease, opacity 0.2s ease; }
+  .logo-row li:hover .logo { filter: none; opacity: 1; }
+  .logo-row .logo + .wordmark { display: none; }
+  @media (max-width: 600px) { .logo-row .logo { height: 32px; max-width: 130px; } }
   .logo-row .w-serif { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.45rem; font-weight: 500; }
   .logo-row .w-serif.i { font-style: italic; }
   .logo-row .w-sans { font-weight: 700; font-size: 1.02rem; letter-spacing: -0.01em; }
@@ -549,11 +554,11 @@
   <div class="container">
     <span class="eyebrow">Tamar's teaching has been featured on</span>
     <ul class="logo-row">
-      <li class="w-sans">TorahAnytime</li>
-      <li class="w-serif">The Jewish Press<small>America's Top Rebbetzins</small></li>
-      <li class="w-caps">The Ladies Talkshow</li>
-      <li class="w-serif i">Sharing Your Soul<small>Podcast</small></li>
-      <li class="w-caps">Transformational Torah<small>World Summit</small></li>
+      <li><img class="logo" src="logos/torahanytime.png" alt="TorahAnytime" loading="lazy" onerror="this.remove()"><span class="wordmark w-sans">TorahAnytime</span></li>
+      <li><img class="logo" src="logos/jewishpress.png" alt="The Jewish Press" loading="lazy" onerror="this.remove()"><span class="wordmark w-serif">The Jewish Press<small>America's Top Rebbetzins</small></span></li>
+      <li><img class="logo" src="logos/ladies-talkshow.png" alt="The Ladies Talkshow" loading="lazy" onerror="this.remove()"><span class="wordmark w-caps">The Ladies Talkshow</span></li>
+      <li><img class="logo" src="logos/sharing-your-soul.png" alt="Sharing Your Soul" loading="lazy" onerror="this.remove()"><span class="wordmark w-serif i">Sharing Your Soul<small>Podcast</small></span></li>
+      <li><img class="logo" src="logos/transformational-torah-summit.png" alt="Transformational Torah" loading="lazy" onerror="this.remove()"><span class="wordmark w-caps">Transformational Torah<small>World Summit</small></span></li>
     </ul>
   </div>
 </div>
@@ -778,7 +783,6 @@
       <img class="tamar-photo" src="tamar.jpg" alt="Rebbetzin Tamar Taback" width="500" height="539">
       <div>
         <span class="ornament-mark" style="justify-content: flex-start;"><span class="ornament"><svg><use href="#glyph-pomegranate"/></svg></span></span>
-        <span class="eyebrow">Your teacher</span>
         <h2>Rebbetzin Tamar Taback</h2>
         <p>Tamar is the founder of the Nexus School of Transformational Torah: teacher, facilitator and coach. For twenty years she has been exploring classical, Chassidic and kabbalistic sources in search of answers for the Jewish woman of this generation.</p>
         <p>Her gift is taking the deepest ideas in Torah and making them clear, warm and livable, for the woman living a real life today.</p>
@@ -792,8 +796,6 @@
   <div class="container">
     <div class="section-intro">
       <span class="ornament-mark"><span class="ornament"><svg><use href="#glyph-vessel"/></svg></span></span>
-      <span class="eyebrow">Trusted</span>
-      <h2>Guided and endorsed by leading Rabbanim.</h2>
     </div>
     <div class="endorse-grid">
       <div class="endorse-card">
@@ -866,7 +868,6 @@
 <footer>
   <div class="container">
     <p>© 2026 The Nexus School of Transformational Torah · <a href="mailto:info@thenexus.org">info@thenexus.org</a></p>
-    <p class="netfree">Attention NetFree users: videos showing women will be blocked. <a href="https://school.thenexus.org/enroll/3903073?et=free">Use the NetFree version.</a></p>
   </div>
 </footer>
 
