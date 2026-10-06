@@ -290,6 +290,19 @@
   footer .netfree { margin-top: 10px; font-size: 0.8rem; color: rgba(255,255,255,0.5); }
 
 
+  /* As featured on */
+  .featured-on { background: var(--white); padding: 40px 0 44px; text-align: center; border-bottom: 1px solid rgba(78, 10, 107, 0.08); }
+  .featured-on .eyebrow { color: var(--text-muted); margin-bottom: 1.2rem; font-size: 0.72rem; }
+  .logo-row { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 14px 40px; }
+  .logo-row li { color: var(--plum-deep); opacity: 0.72; line-height: 1.1; transition: opacity 0.2s ease; }
+  .logo-row li:hover { opacity: 1; }
+  .logo-row .w-serif { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.45rem; font-weight: 500; }
+  .logo-row .w-serif.i { font-style: italic; }
+  .logo-row .w-sans { font-weight: 700; font-size: 1.02rem; letter-spacing: -0.01em; }
+  .logo-row .w-caps { font-weight: 600; font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase; }
+  .logo-row small { display: block; font-family: 'Poppins', sans-serif; font-style: normal; font-weight: 400; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 3px; }
+  @media (max-width: 600px) { .logo-row { gap: 16px 26px; } .logo-row .w-serif { font-size: 1.25rem; } }
+
   /* Questions */
   .questions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 900px; margin: 0 auto; }
   @media (max-width: 700px) { .questions { grid-template-columns: 1fr; } }
@@ -467,6 +480,20 @@
 <div class="proof-bar">
   <div class="container">
     Endorsed by <strong>HaRav Aharon Lopiansky</strong><span class="sep">&middot;</span><strong>HaRav Yitzchak Berkovitz</strong><span class="sep">&middot;</span><strong>Rabbi Akiva Tatz</strong>
+  </div>
+</div>
+
+<!-- AS FEATURED ON -->
+<div class="featured-on">
+  <div class="container">
+    <span class="eyebrow">Tamar's teaching has been featured on</span>
+    <ul class="logo-row">
+      <li class="w-sans">TorahAnytime</li>
+      <li class="w-serif">The Jewish Press<small>America's Top Rebbetzins</small></li>
+      <li class="w-caps">The Ladies Talkshow</li>
+      <li class="w-serif i">Sharing Your Soul<small>Podcast</small></li>
+      <li class="w-caps">Transformational Torah<small>World Summit</small></li>
+    </ul>
   </div>
 </div>
 
