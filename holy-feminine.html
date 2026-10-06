@@ -443,6 +443,7 @@
   .js-reveal .endorse-card,
   .js-reveal .t-card,
   .js-reveal .q-card,
+  .js-reveal .lesson,
   .js-reveal .step,
   .js-reveal .featured-quote > .container-narrow {
     opacity: 0;
@@ -453,6 +454,145 @@
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .sticky-cta { transition: none; }
+  }
+
+  /* ===== Visual rhythm layer ===== */
+  /* Hero split */
+  .hero-split { text-align: left; padding: 110px 0 100px; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center; }
+  .hero-split .badge { margin-bottom: 1.6rem; }
+  .hero-split .opener { margin: 0 0 1.1rem; max-width: 520px; }
+  .hero-split h1 { margin-bottom: 1.4rem; }
+  .hero-split .subhead { margin: 0 0 2.2rem; max-width: 560px; }
+  .hero-split .platforms { margin-top: 2.2rem; }
+  .hero-split .platform-row { justify-content: flex-start; }
+  .hero-visual { position: relative; justify-self: center; width: min(100%, 400px); }
+  .arch { position: relative; z-index: 1; border-radius: 200px 200px 18px 18px; overflow: hidden; aspect-ratio: 4 / 5; box-shadow: 0 30px 70px rgba(10, 0, 20, 0.45); border: 6px solid rgba(255,255,255,0.12); }
+  .arch img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block; }
+  .arch-ring { position: absolute; inset: -22px -22px 30px 22px; border: 1px solid rgba(244, 221, 240, 0.35); border-radius: 220px 220px 24px 24px; }
+  .float-card { position: absolute; z-index: 2; background: var(--white); color: var(--plum-deep); border-radius: 14px; box-shadow: 0 16px 40px rgba(10, 0, 20, 0.3); font-size: 0.85rem; line-height: 1.3; }
+  .fc-top { top: 40px; left: -48px; display: flex; align-items: center; gap: 10px; padding: 12px 18px 12px 14px; font-weight: 500; }
+  .fc-big { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 2.6rem; line-height: 1; color: var(--magenta); }
+  .fc-bottom { bottom: 28px; right: -36px; padding: 14px 20px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.25rem; }
+  .fc-kicker { display: block; font-family: 'Poppins', sans-serif; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--magenta); margin-bottom: 2px; }
+  .hero-glyph { position: absolute; color: var(--magenta-light); opacity: 0.09; pointer-events: none; z-index: 0; }
+  .hero-glyph svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; }
+  .hero-glyph.g1 { width: 280px; height: 280px; top: -60px; right: -60px; transform: rotate(14deg); }
+  .hero-glyph.g2 { width: 240px; height: 240px; bottom: -70px; left: -50px; transform: rotate(-12deg); }
+  @media (max-width: 900px) {
+    .hero-split { text-align: center; padding: 72px 0 80px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero-split .opener, .hero-split .subhead { margin-left: auto; margin-right: auto; }
+    .hero-split .platform-row { justify-content: center; }
+    .hero-visual { width: min(78%, 300px); }
+    .fc-top { left: -28px; top: 24px; }
+    .fc-bottom { right: -24px; }
+  }
+
+  /* Questions: dark split */
+  .questions-section { background: var(--plum-navy); color: rgba(255,255,255,0.86); position: relative; overflow: hidden; }
+  .questions-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 85% 20%, rgba(174, 67, 130, 0.28) 0%, transparent 55%); pointer-events: none; }
+  .q-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: start; position: relative; }
+  .q-side { position: sticky; top: 48px; }
+  .q-side .eyebrow { color: var(--magenta-light); }
+  .q-side h2 { color: var(--white); font-size: clamp(2.1rem, 4.2vw, 3.1rem); }
+  .q-side p { color: rgba(255,255,255,0.8); }
+  .q-side strong { color: var(--white); font-weight: 500; }
+  .text-cta { display: inline-block; margin-top: 1.6rem; color: var(--pink-soft); text-decoration: none; font-weight: 500; border-bottom: 1px solid rgba(244, 221, 240, 0.4); padding-bottom: 2px; }
+  .q-list { display: grid; gap: 14px; }
+  .questions-section .q-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(244, 221, 240, 0.14); border-left: 3px solid var(--magenta-light); color: var(--white); box-shadow: none; font-size: 1.35rem; padding: 22px 26px; }
+  .questions-section .q-card:nth-child(even) { margin-left: 36px; }
+  @media (max-width: 900px) {
+    .q-grid { grid-template-columns: 1fr; gap: 36px; }
+    .q-side { position: static; text-align: center; }
+    .questions-section .q-card:nth-child(even) { margin-left: 0; }
+  }
+
+  /* How it works: connector line */
+  .steps { position: relative; }
+  .step { background: var(--cream); border: 1px solid rgba(78, 10, 107, 0.06); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+  .step:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(78, 10, 107, 0.1); }
+  .step-icon { background: linear-gradient(135deg, var(--plum-deep), var(--magenta)); color: var(--white); }
+  .step-icon svg { stroke: var(--white); }
+
+  /* Lessons grid */
+  .lessons-section { position: relative; overflow: hidden; }
+  .lesson-grid { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 1000px; margin: 0 auto; }
+  .lesson { display: grid; grid-template-columns: 74px 1fr; gap: 18px; background: var(--white); border-radius: 16px; padding: 28px 28px 28px 22px; box-shadow: 0 1px 2px rgba(78, 10, 107, 0.04), 0 8px 26px rgba(78, 10, 107, 0.06); transition: transform 0.25s ease, box-shadow 0.25s ease; position: relative; overflow: hidden; }
+  .lesson:hover { transform: translateY(-3px); box-shadow: 0 16px 38px rgba(78, 10, 107, 0.12); }
+  .lesson-num { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 3.4rem; line-height: 0.9; color: transparent; -webkit-text-stroke: 1px var(--magenta); }
+  .lesson p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.65; }
+  .lesson-first { grid-column: 1 / -1; background: linear-gradient(135deg, var(--plum-deep) 0%, var(--magenta) 100%); color: var(--white); padding: 36px 40px 36px 30px; }
+  .lesson-first .lesson-num { -webkit-text-stroke: 1px var(--pink-soft); font-size: 4.4rem; }
+  .lesson-first h3 { color: var(--white); font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 2rem; }
+  .lesson-first p { color: rgba(255,255,255,0.88); font-size: 1.02rem; max-width: 640px; }
+  .lesson-first .part-label { color: var(--pink-soft); display: inline-block; }
+  .start-tag { display: inline-block; margin-left: 10px; padding: 3px 10px; border-radius: 20px; background: var(--white); color: var(--magenta); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: 1px; }
+  @media (max-width: 760px) {
+    .lesson-grid { grid-template-columns: 1fr; }
+    .lesson { grid-template-columns: 52px 1fr; padding: 22px 20px 22px 16px; }
+    .lesson-num { font-size: 2.6rem; }
+    .lesson-first { padding: 28px 22px 28px 18px; }
+    .lesson-first .lesson-num { font-size: 3.2rem; }
+    .lesson-first h3 { font-size: 1.6rem; }
+  }
+  .section-glyph { position: absolute; color: var(--magenta); opacity: 0.06; pointer-events: none; }
+  .section-glyph svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; }
+  .section-glyph.on-dark { color: var(--magenta-light); opacity: 0.08; }
+  .sg-tr { width: 300px; height: 300px; top: -50px; right: -70px; transform: rotate(12deg); }
+  .sg-bl { width: 280px; height: 280px; bottom: -60px; left: -60px; transform: rotate(-10deg); }
+  .lessons-section > .container { position: relative; z-index: 1; }
+
+  /* Featured quote */
+  .big-quote { display: block; width: 64px; height: 64px; margin: 0 auto 1.4rem; color: var(--magenta-light); }
+  .big-quote svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+  .featured-quote blockquote { font-size: clamp(1.8rem, 3.8vw, 2.7rem); }
+
+  /* About */
+  .about-section { background: linear-gradient(180deg, var(--white) 0%, var(--cream) 100%); }
+  .about-split { grid-template-columns: 360px 1fr; gap: 72px; }
+  .about-photo { position: relative; padding: 0 18px 18px 0; }
+  .arch-frame { position: absolute; inset: 18px 0 0 18px; border: 1.5px solid var(--magenta); border-radius: 200px 200px 18px 18px; opacity: 0.45; }
+  .arch-light { box-shadow: 0 24px 60px rgba(78, 10, 107, 0.2); border: 0; }
+  .about-split h2 { font-size: clamp(2.2rem, 4.4vw, 3.2rem); }
+  @media (max-width: 860px) {
+    .about-split { grid-template-columns: 1fr; gap: 40px; }
+    .about-photo { max-width: 280px; margin: 0 auto; }
+  }
+
+  /* Endorsements: dark */
+  .endorse-section { background: linear-gradient(160deg, var(--plum-navy) 0%, var(--plum-darker) 100%); position: relative; overflow: hidden; }
+  .endorse-section > .container { position: relative; z-index: 1; }
+  .endorse-section .ornament-mark { margin-bottom: 2.4rem; }
+  .endorse-section .endorse-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(244, 221, 240, 0.14); border-top: 3px solid var(--magenta-light); }
+  .endorse-section .endorse-card p { color: rgba(255,255,255,0.92); font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 1.28rem; line-height: 1.45; }
+  .endorse-section .endorse-card cite { color: var(--white); }
+  .endorse-section .endorse-card cite span { color: rgba(255,255,255,0.6); }
+
+  /* FAQ two-col */
+  .faq-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 64px; align-items: start; }
+  .faq-side { position: sticky; top: 48px; }
+  .faq-side h2 { font-size: clamp(2.2rem, 4.4vw, 3.2rem); }
+  .faq-grid .faq { max-width: none; margin: 0; }
+  .faq-card { margin-top: 1.8rem; background: var(--pink-wash); border-radius: 16px; padding: 26px; }
+  .faq-card img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; object-position: center 25%; border: 2px solid var(--white); margin-bottom: 12px; display: block; }
+  .faq-card p { font-size: 0.98rem; color: var(--text); margin-bottom: 1.1rem; }
+  .faq-card .btn { padding: 13px 26px; font-size: 0.95rem; }
+  @media (max-width: 860px) {
+    .faq-grid { grid-template-columns: 1fr; gap: 28px; }
+    .faq-side { position: static; text-align: center; }
+    .faq-card { display: none; }
+  }
+
+  /* Final CTA */
+  .final-cta { padding: 110px 0; }
+  .final-avatar { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; object-position: center 25%; border: 3px solid rgba(244, 221, 240, 0.7); margin: 0 auto 1.4rem; display: block; box-shadow: 0 10px 30px rgba(10, 0, 20, 0.35); }
+  .lesson-last { grid-column: 1 / -1; background: var(--pink-soft); }
+  .lesson-last p { max-width: 680px; color: var(--text); }
+  .btn { white-space: nowrap; }
+  @media (max-width: 480px) {
+    .hero .badge { font-size: 0.62rem; letter-spacing: 0.1em; padding: 8px 14px; }
+    .hero .btn { padding: 17px 28px; font-size: 1rem; }
   }
 </style>
 <script>
@@ -528,16 +668,17 @@
 </svg>
 
 <!-- HERO -->
-<section class="hero" id="top">
-  <div class="container-narrow">
-    <span class="ornament-mark on-dark"><span class="ornament"><svg><use href="#glyph-flame"/></svg></span></span>
-    <p class="opener">Being a Jewish woman today is a lot. It's also more significant than you've ever been told.</p>
-    <h1>The Torah has a breathtaking vision for <em>you.</em></h1>
-    <p class="subhead">Join <strong>The Rise of the Holy Feminine in the Pre-Messianic Era</strong> and enter the world of the deepest Torah secrets for women living in the end of days. Rise into your highest, holiest potential.</p>
-    <span class="badge">Free Mini-Course &middot; 10 Lessons &middot; 10 Minutes Each</span>
-    <span class="teacher-line"><img src="tamar.jpg" alt="" width="40" height="40">With Rebbetzin Tamar Taback</span>
-    <a href="https://school.thenexus.org/enroll/3482146?et=free" class="btn">Start the Free Mini-Course <span aria-hidden="true">&rarr;</span></a>
-    <div class="platforms">
+<section class="hero hero-split" id="top">
+  <span class="hero-glyph g1" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#glyph-flame"/></svg></span>
+  <span class="hero-glyph g2" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#glyph-vine"/></svg></span>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="badge">Free Mini-Course &middot; 10 Lessons &middot; 10 Minutes Each</span>
+      <p class="opener">Being a Jewish woman today is a lot. It's also more significant than you've ever been told.</p>
+      <h1>The Torah has a breathtaking vision for <em>you.</em></h1>
+      <p class="subhead">Join <strong>The Rise of the Holy Feminine in the Pre-Messianic Era</strong> and enter the world of the deepest Torah secrets for women living in the end of days. Rise into your highest, holiest potential.</p>
+      <a href="https://school.thenexus.org/enroll/3482146?et=free" class="btn">Start the Free Mini-Course <span aria-hidden="true">&rarr;</span></a>
+      <div class="platforms">
       <span class="platforms-label">Delivered to your inbox. Watch or listen on</span>
       <ul class="platform-row">
         <li><svg aria-hidden="true"><use href="#ic-spotify"/></svg>Spotify</li>
@@ -546,6 +687,13 @@
         <li><svg aria-hidden="true"><use href="#ic-torahanytime"/></svg>TorahAnytime</li>
         <li class="netfree-pill"><a href="https://school.thenexus.org/enroll/3903073?et=free"><svg aria-hidden="true"><use href="#ic-shield"/></svg>NetFree version</a></li>
       </ul>
+    </div>
+    </div>
+    <div class="hero-visual">
+      <div class="arch-ring" aria-hidden="true"></div>
+      <div class="arch"><img src="tamar.jpg" alt="Rebbetzin Tamar Taback" width="500" height="539"></div>
+      <div class="float-card fc-top"><span class="fc-big">10</span><span>lessons<br>&times; 10 minutes</span></div>
+      <div class="float-card fc-bottom"><span class="fc-kicker">Your teacher</span>Rebbetzin Tamar Taback</div>
     </div>
   </div>
 </section>
@@ -572,24 +720,22 @@
 </div>
 
 <!-- QUESTIONS -->
-<section class="bg-cream">
-  <div class="container">
-    <div class="section-intro">
-      <span class="ornament-mark"><span class="ornament"><svg><use href="#glyph-vine"/></svg></span></span>
+<section class="questions-section">
+  <div class="container q-grid">
+    <div class="q-side">
       <span class="eyebrow">Is this you?</span>
       <h2>You love Torah. And you still carry questions.</h2>
-      <p>Maybe you've found yourself asking&hellip;</p>
+      <p>These aren't questions to be quieted. <strong>Tap into the transformational teachings of Torah to solve your deepest pain points.</strong> The answers are more beautiful than you've been told.</p>
+      <p>This free mini-course is where Rebbetzin Tamar begins to share them, ten minutes at a time.</p>
+      <a href="#parts" class="text-cta">See what's inside <span aria-hidden="true">&darr;</span></a>
     </div>
-    <div class="questions">
+    <div class="q-list">
       <div class="q-card">"What is the real Torah approach to femininity? I feel confused and restricted by the role I was handed."</div>
       <div class="q-card">"I want Torah that's deep, thought-provoking and actually relevant to the life I'm living."</div>
       <div class="q-card">"I'm a sensitive, spiritual, ambitious woman. How do I reach my fullest potential?"</div>
       <div class="q-card">"I want a deeper marriage, but I'm in such a different place from my husband."</div>
       <div class="q-card">"Everyone says Mashiach is close. What does that actually mean for me, as a woman?"</div>
       <div class="q-card">"I've done so much growing already. Why does something still feel unfinished?"</div>
-    </div>
-    <div class="q-answer">
-      <p>These aren't questions to be quieted. <strong>Tap into the transformational teachings of Torah to solve your deepest pain points.</strong> The answers are more beautiful than you've been told. This free mini-course is where Rebbetzin Tamar begins to share them, ten minutes at a time.</p>
     </div>
   </div>
 </section>
@@ -633,7 +779,8 @@
 </section>
 
 <!-- THE TEN PARTS -->
-<section class="bg-cream" id="parts">
+<section class="bg-cream lessons-section" id="parts">
+  <span class="section-glyph sg-tr" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#glyph-vine"/></svg></span>
   <div class="container">
     <div class="section-intro">
       <span class="ornament-mark"><span class="ornament"><svg><use href="#glyph-vine"/></svg></span></span>
@@ -642,82 +789,82 @@
       <p>In just 10 minutes a lesson, uncover the Torah's breathtaking vision for women, relationships and the world at the threshold of Redemption.</p>
     </div>
 
-    <ol class="journey">
-      <li class="part">
-        <div class="part-num" aria-hidden="true">1</div>
-        <div class="part-body">
-          <span class="part-label">Lesson 1 &middot; 10 min</span>
+    <ol class="lesson-grid">
+      <li class="lesson lesson-first">
+        <span class="lesson-num" aria-hidden="true">01</span>
+        <div>
+          <span class="part-label">Lesson 1 &middot; 10 min</span><span class="start-tag">Start here</span>
           <h3>Tranquil Daughters, Rise!</h3>
           <p>Introducing a roadmap for women who want to live deeply, connect truly and rise into their fullest potential. Torah's inner light, our feminine awakening, and the wisdom for our time.</p>
         </div>
       </li>
-      <li class="part">
-        <div class="part-num" aria-hidden="true">2</div>
-        <div class="part-body">
+      <li class="lesson">
+        <span class="lesson-num" aria-hidden="true">02</span>
+        <div>
           <span class="part-label">Lesson 2 &middot; 10 min</span>
           <h3>The Question that Opens the Door</h3>
           <p>Breaking the invisible ceiling: how diving into deep sources reveals a new dimension of feminine spiritual growth, within everything we already received in our mesorah. Explore why women are central to Redemption, and how this clarity can transform shame into light.</p>
         </div>
       </li>
-      <li class="part">
-        <div class="part-num" aria-hidden="true">3</div>
-        <div class="part-body">
+      <li class="lesson">
+        <span class="lesson-num" aria-hidden="true">03</span>
+        <div>
           <span class="part-label">Lesson 3 &middot; 10 min</span>
           <h3>The Pre-Messianic Woman</h3>
           <p>Redemption is seeping in&hellip; are you feeling it? We're in the "Erev Shabbos" of world history: messy, but unstoppable. The Torah maps the rise of holy femininity and the secrets of Redemption carried within the Pre-Messianic Woman.</p>
         </div>
       </li>
-      <li class="part">
-        <div class="part-num" aria-hidden="true">4</div>
-        <div class="part-body">
+      <li class="lesson">
+        <span class="lesson-num" aria-hidden="true">04</span>
+        <div>
           <span class="part-label">Lesson 4 &middot; 10 min</span>
           <h3>The Moon &amp; the Feminine Odyssey</h3>
           <p>Understand why the moon was made small, her protests and appeasement, and how the feminine rising is a recovery of original brilliance.</p>
         </div>
       </li>
-      <li class="part">
-        <div class="part-num" aria-hidden="true">5</div>
-        <div class="part-body">
+      <li class="lesson">
+        <span class="lesson-num" aria-hidden="true">05</span>
+        <div>
           <span class="part-label">Lesson 5 &middot; 10 min</span>
           <h3>The Lost Princess &amp; the Shechinah</h3>
           <p>A story of longing, persistence, and an unfinished ending that depends on us. Understand how the Princess represents the Shechinah, the trials of the Viceroy, and why mitzvos are the currency of Redemption.</p>
         </div>
       </li>
-      <li class="part">
-        <div class="part-num" aria-hidden="true">6</div>
-        <div class="part-body">
+      <li class="lesson">
+        <span class="lesson-num" aria-hidden="true">06</span>
+        <div>
           <span class="part-label">Lesson 6 &middot; 10 min</span>
           <h3>Adam, Chava and the Triple Beat</h3>
           <p>How the story of Adam and Chava mirrors the sun and moon, why every descent leads to a greater ascent, and how masculine and feminine, face to face, become the very crown of Redemption.</p>
         </div>
       </li>
-      <li class="part">
-        <div class="part-num" aria-hidden="true">7</div>
-        <div class="part-body">
+      <li class="lesson">
+        <span class="lesson-num" aria-hidden="true">07</span>
+        <div>
           <span class="part-label">Lesson 7 &middot; 10 min</span>
           <h3>Demystifying the Mystical: An Introduction to P'nimiyus HaTorah</h3>
           <p>Unbelievable depth that is so, so beautiful. Discover what the Sefiros are, why they're holographic (and what that even means!), and how these teachings aren't just ideas&hellip; they transform our lives, marriages and avodah.</p>
         </div>
       </li>
-      <li class="part">
-        <div class="part-num" aria-hidden="true">8</div>
-        <div class="part-body">
+      <li class="lesson">
+        <span class="lesson-num" aria-hidden="true">08</span>
+        <div>
           <span class="part-label">Lesson 8 &middot; 10 min</span>
           <h3>The Seven Stages of Feminine Development</h3>
           <p>Follow the Arizal's breathtaking map of the feminine journey: shrinking to a point, rising through instinct, emotion, intellect and crown. A roadmap showing exactly how the feminine regains her light, and how to be in transition between levels.</p>
         </div>
       </li>
-      <li class="part">
-        <div class="part-num" aria-hidden="true">9</div>
-        <div class="part-body">
+      <li class="lesson">
+        <span class="lesson-num" aria-hidden="true">09</span>
+        <div>
           <span class="part-label">Lesson 9 &middot; 10 min</span>
           <h3>Marriage, True Love and a Cosmic Story</h3>
           <p>As women rise, marriage can rise too. What will this look like, in kedushah? How can we lift marriage into a union that mirrors Hashem and the Shechinah? The feminine gift of receiving, the new gift of giving, and the breathtaking secret of "sharing a crown."</p>
         </div>
       </li>
-      <li class="part">
-        <div class="part-num" aria-hidden="true">10</div>
-        <div class="part-body">
+      <li class="lesson lesson-last">
+        <span class="lesson-num" aria-hidden="true">10</span>
+        <div>
           <span class="part-label">Lesson 10 &middot; 10 min</span>
           <h3>The Women in Torah Guide Us to Redemption</h3>
           <p>From Sarah to Esther, the Imahos show us how the feminine rises, carries the merit of Redemption, and lights the path for our generation.</p>
@@ -735,7 +882,7 @@
 <!-- FEATURED TESTIMONIAL -->
 <section class="featured-quote">
   <div class="container-narrow">
-    <span class="ornament-mark on-dark"><span class="ornament"><svg><use href="#glyph-flame"/></svg></span></span>
+    <span class="big-quote" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#glyph-quote"/></svg></span>
     <blockquote>"I tell people I wasn't awake until I did the Rise Series. I can't fathom how I could have lived for 70 years and been asleep."</blockquote>
     <cite>Chaya Yehudis Dank</cite>
   </div>
@@ -785,10 +932,13 @@
 </section>
 
 <!-- ABOUT TAMAR -->
-<section>
+<section class="about-section">
   <div class="container">
-    <div class="split">
-      <img class="tamar-photo" src="tamar.jpg" alt="Rebbetzin Tamar Taback" width="500" height="539">
+    <div class="split about-split">
+      <div class="about-photo">
+        <div class="arch-frame" aria-hidden="true"></div>
+        <div class="arch arch-light"><img src="tamar.jpg" alt="Rebbetzin Tamar Taback" width="500" height="539"></div>
+      </div>
       <div>
         <span class="ornament-mark" style="justify-content: flex-start;"><span class="ornament"><svg><use href="#glyph-pomegranate"/></svg></span></span>
         <h2>Rebbetzin Tamar Taback</h2>
@@ -806,11 +956,10 @@
 </section>
 
 <!-- ENDORSEMENTS -->
-<section class="bg-cream">
+<section class="endorse-section">
+  <span class="section-glyph sg-bl on-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#glyph-flame"/></svg></span>
   <div class="container">
-    <div class="section-intro">
-      <span class="ornament-mark"><span class="ornament"><svg><use href="#glyph-vessel"/></svg></span></span>
-    </div>
+    <span class="ornament-mark on-dark"><span class="ornament"><svg><use href="#glyph-vessel"/></svg></span></span>
     <div class="endorse-grid">
       <div class="endorse-card">
         <p>Rebbetzin Taback teaches Torah in a way that ignites a love of Hashem and His Torah. May Hashem continue to fan those flames until they become an all-encompassing love and awe of Him in the hearts of many women.</p>
@@ -830,11 +979,15 @@
 
 <!-- FAQ -->
 <section>
-  <div class="container">
-    <div class="section-intro">
-      <span class="ornament-mark"><span class="ornament"><svg><use href="#glyph-pomegranate"/></svg></span></span>
+  <div class="container faq-grid">
+    <div class="faq-side">
       <span class="eyebrow">Questions</span>
       <h2>Good to know.</h2>
+      <div class="faq-card">
+        <img src="tamar.jpg" alt="" width="56" height="56">
+        <p>Ten minutes, completely free, and Lesson 1 is ready for you now.</p>
+        <a href="https://school.thenexus.org/enroll/3482146?et=free" class="btn solid">Start Free <span aria-hidden="true">&rarr;</span></a>
+      </div>
     </div>
     <div class="faq">
       <details>
@@ -870,8 +1023,11 @@
 </section>
 
 <!-- FINAL CTA -->
-<section class="hero" id="final" style="padding: 100px 0;">
+<section class="hero final-cta" id="final">
+  <span class="hero-glyph g1" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#glyph-vine"/></svg></span>
+  <span class="hero-glyph g2" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#glyph-vessel"/></svg></span>
   <div class="container-narrow">
+    <img class="final-avatar" src="tamar.jpg" alt="" width="88" height="88">
     <span class="eyebrow">Begin today</span>
     <h2 style="color: var(--white); font-size: clamp(2rem, 4.5vw, 3rem); margin-bottom: 1.2rem;">Ten minutes is all it takes to begin.</h2>
     <p class="subhead">A free mini-course. Ten lessons, ten minutes each. Lesson 1 is waiting for you.</p>
@@ -910,7 +1066,7 @@
 
     // Scroll reveals
     if (!document.documentElement.classList.contains('js-reveal')) return;
-    var targets = document.querySelectorAll('.part, .section-intro, .endorse-card, .t-card, .q-card, .step, .featured-quote > .container-narrow');
+    var targets = document.querySelectorAll('.part, .lesson, .section-intro, .endorse-card, .t-card, .q-card, .step, .featured-quote > .container-narrow');
     var io = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) {
         if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
